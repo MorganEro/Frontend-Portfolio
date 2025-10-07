@@ -1,26 +1,217 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Use the `.dark` class on <html> to toggle dark mode */
+@custom-variant dark (&:is(.dark *));
 
+/* Tailwind tokens mapped to our CSS vars */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  /* Fonts */
+  --font-sans: var(--font-public-sans);
+  --font-heading: var(--font-ibarra);
+
+  /* === Brand palette (usable directly in Tailwind) === */
+  --color-brand-orange: #fd7e14; /* Rustic Orange */
+  --color-brand-orange-muted: #ececed; /* Muted/Lighter Orange */
+  --color-brand-darkblue: #203a4c; /* Dark Blue */
+  --color-brand-graydark: #33323d; /* Grayish Dark Blue */
+  --color-brand-lightgrey: #eaeaeb; /* Light Grey (fields/borders) */
+  --color-brand-bg: #fafafa; /* Very Light Grey (bg) */
+  --color-brand-error: #f43030; /* Bright Red */
+
+  /* Core colors (semantic tokens) */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  /* UI tokens */
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+
+  /* Card/Popover */
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  /* Sidebar */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Radii (you set radius=0; keeping variants equal) */
+  --radius-sm: var(--radius);
+  --radius-md: var(--radius);
+  --radius-lg: var(--radius);
+  --radius-xl: var(--radius);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* =========
+   LIGHT THEME (brand)
+   ========= */
+:root {
+  --radius: 0;
+
+  /* Brand palette mapped to semantics */
+  --primary: var(--color-brand-orange); /* Buttons, emphasis */
+  --primary-foreground: var(--color-brand-darkblue);
+
+  --secondary: var(--color-brand-darkblue); /* Alt buttons, chips */
+  --secondary-foreground: var(--color-brand-bg);
+
+  /* With no teal, let accent be the grayish dark blue for subtle emphasis */
+  --accent: var(--color-brand-graydark);
+  --accent-foreground: var(--color-brand-bg);
+
+  /* Base surfaces & text */
+  --background: var(--color-brand-bg);
+  --foreground: var(--color-brand-graydark);
+
+  /* Components */
+  --card: #ffffff;
+  --card-foreground: var(--foreground);
+  --popover: #ffffff;
+  --popover-foreground: var(--foreground);
+
+  /* State / UI */
+  --muted: #f4f4f5;
+  --muted-foreground: #606066;
+  --border: var(--color-brand-lightgrey);
+  --input: var(--color-brand-orange-muted);
+  --ring: var(--color-brand-orange); /* Focus ring uses dark blue */
+  --destructive: var(--color-brand-error);
+
+  /* Charts (no teal) */
+  --chart-1: var(--color-brand-orange);
+  --chart-2: var(--color-brand-darkblue);
+  --chart-3: var(--color-brand-graydark);
+  --chart-4: #b9bcc2; /* neutral light gray */
+  --chart-5: var(--color-brand-lightgrey);
+
+  /* Sidebar */
+  --sidebar: #ffffff;
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+}
+
+/* =========
+   DARK THEME (keeps the same brand feel)
+   ========= */
+.dark {
+  /* Deepened blue canvas; orange pops, gray stays readable */
+  --background: #1a2a36; /* deeper than #203a4c */
+  --foreground: #fafafa;
+
+  --card: var(--color-brand-darkblue);
+  --card-foreground: #fafafa;
+  --popover: var(--color-brand-darkblue);
+  --popover-foreground: #fafafa;
+
+  --primary: var(--color-brand-orange);
+  --primary-foreground: #101820; /* strong contrast on orange */
+
+  --secondary: #2b475b; /* a step lighter than card */
+  --secondary-foreground: #fafafa;
+
+  --accent: var(--color-brand-graydark); /* subtle accent = gray dark */
+  --accent-foreground: #eaeff3;
+
+  --muted: #253a49;
+  --muted-foreground: #c9d2d6;
+  --border: #2c4456;
+  --input: #2c4456;
+  --ring: var(--color-brand-orange); /* brighter ring on dark */
+  --destructive: #ff5a5a;
+
+  /* Charts (no teal) */
+  --chart-1: var(--color-brand-orange);
+  --chart-2: #9fb7c6; /* desaturated blue tint */
+  --chart-3: var(--color-brand-graydark);
+  --chart-4: #ffd2b0; /* orange tint (light) */
+  --chart-5: #8b9aa6; /* cool gray */
+
+  --sidebar: #1f3442;
+  --sidebar-foreground: #eaf1f4;
+  --sidebar-primary: var(--color-brand-orange);
+  --sidebar-primary-foreground: #0f1b22;
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: #2c4456;
+  --sidebar-ring: var(--ring);
+}
+
+/* Base resets */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html,
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Typography defaults */
+  body {
+    font-family: var(--font-public-sans), ui-sans-serif, system-ui,
+      -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji',
+      'Segoe UI Emoji';
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-ibarra), serif;
+    color: var(--foreground);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Optional: opinionated heading sizes to match your spec */
+@layer utilities {
+  .heading-h1 {
+    @apply font-bold tracking-[-0.02em];
+    font-size: 50px;
+    line-height: 50px;
+  }
+  .heading-h2 {
+    @apply font-bold tracking-[-0.02em];
+    font-size: 40px;
+    line-height: 42px;
+  }
+  .heading-h3 {
+    @apply font-normal tracking-[-0.02em];
+    font-size: 32px;
+    line-height: 36px;
+  }
+  .body-1 {
+    @apply font-normal;
+    font-size: 16px;
+    line-height: 30px;
+  }
+  .body-2 {
+    @apply font-normal;
+    font-size: 15px;
+    line-height: 30px;
+  }
 }
