@@ -30,7 +30,7 @@ async function ProductDetailPage({ params }: ProjectDetailsPageProps) {
 
   return (
     <>
-      <section className="grid gap-4 justify-items-start mt-6">
+      <section className="grid gap-4 justify-items-start pb-12">
         <div className="relative aspect-square w-full">
           <Image
             src={project.imageURL}
@@ -67,7 +67,7 @@ async function ProductDetailPage({ params }: ProjectDetailsPageProps) {
           </Link>
         </Button>
       </section>
-      <section>
+      <section className="grid gap-4 justify-items-start mb-12">
         <h2 className="heading-h3">Project Background</h2>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita,
@@ -76,9 +76,9 @@ async function ProductDetailPage({ params }: ProjectDetailsPageProps) {
           temporibus ad perspiciatis animi incidunt vitae sequi sapiente?
         </p>
       </section>
-      <section>
+      <section >
         <h2 className="heading-h3">Static previews</h2>
-        <div className="grid gap-4 jus">
+        <div className="grid gap-4">
           <div className="relative aspect-square w-full">
             <Image
               src="/image-placeholder-single.jpg"

@@ -12,7 +12,9 @@ function CallToAction() {
 
   return (
     <section className="grid gap-8 bg-brand-bg px-4 pt-24 pb-12 text-center justify-items-center mx-auto max-w-6xl xl:max-w-7xl md:px-8">
-      <h2 className="heading-h2">Interested in doing some work together?</h2>
+      <h2 className="heading-h2">
+        Interested in doing some projects together?
+      </h2>
       <Button
         asChild
         variant="secondary">

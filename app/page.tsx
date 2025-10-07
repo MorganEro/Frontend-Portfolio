@@ -1,11 +1,12 @@
 import { Button } from '@/components/ui/button';
+import { ButtonWithIcon } from '@/components/ui/ButtonWithIcon';
 import Image from 'next/image';
 import Link from 'next/link';
 
 function Home() {
   return (
     <div>
-      <section className="grid gap-6 justify-items-start border-b border-brand-lightgrey py-6">
+      <section className="grid gap-6 justify-items-start border-b border-brand-lightgrey pb-6">
         <div className="relative aspect-square w-full border-1 border-brand-orange/50">
           <Image
             src={`${process.env.NEXT_PUBLIC_IMAGEKIT_URL}/portfolio-images/homepic.jpg?updatedAt=1759764094296`}
@@ -17,9 +18,7 @@ function Home() {
         <h1 className="heading-h2">
           Hey, I'm Morgan Ero and I love turning ideas into reality
         </h1>
-        <Button asChild>
-          <Link href="#about">About Me</Link>
-        </Button>
+        <ButtonWithIcon href="#about">About Me</ButtonWithIcon>
         <div className="relative aspect-square w-full border-1 border-brand-orange/50">
           <Image
             src={`${process.env.NEXT_PUBLIC_IMAGEKIT_URL}/portfolio-images/headshot2.jpg?updatedAt=1759698913697`}

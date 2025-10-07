@@ -81,7 +81,7 @@ function ContactForm() {
       <h2 className="heading-h2 mb-6">Contact Me</h2>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="max-w-lg space-y-6 mb-12">
+        className="max-w-lg space-y-10 mb-12">
         {/* Honeypot field (hidden) */}
         <input
           type="text"

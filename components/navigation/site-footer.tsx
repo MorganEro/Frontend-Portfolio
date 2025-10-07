@@ -42,8 +42,6 @@ export default function SiteFooter(): JSX.Element {
 
         {/* Right: Socials */}
         <SocialLinks
-          githubUrl="https://github.com/your-handle"
-          linkedinUrl="https://www.linkedin.com/in/your-handle"
           size={20}
           className="justify-center md:justify-end"
         />

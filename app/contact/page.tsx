@@ -19,8 +19,6 @@ export default function ContactPage(): JSX.Element {
           touch using the form.
         </p>
         <SocialLinks
-          githubUrl="https://github.com/your-handle"
-          linkedinUrl="https://www.linkedin.com/in/your-handle"
           size={20}
           className="justify-start"
         />

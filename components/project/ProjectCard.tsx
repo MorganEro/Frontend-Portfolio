@@ -17,7 +17,7 @@ function ProjectCard({ title, imageURL }: ProjectCardProps) {
           src={imageURL}
           alt={title}
           fill
-          sizes="(max-width: 768px) 50vw, 25vw"
+          sizes="(max-width: 768px) 100vw, 50vw"
           className="object-cover"
         />
       </div>

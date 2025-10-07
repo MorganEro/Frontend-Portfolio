@@ -11,14 +11,16 @@ function DetailPageNav({ prevProject, nextProject }: DetailPageNavProps) {
   const prev = slugify(prevProject || '');
   const next = slugify(nextProject || '');
   return (
-    <nav className="grid grid-cols-2 mt-12 pt-6 divide-x-1 divide-brand-lightgrey">
+    <nav className="grid grid-cols-2 mt-12 pt-6 divide-x-2 divide-brand-lightgrey">
       {prevProject ? (
         <Link
           href={`/portfolio/projects/${prev}`}
-          className="flex items-start py-6 flex-col gap-2 border-y border-brand-lightgrey">
-          <SlArrowLeft className="w-5 h-5" />
-          <p className="text-lg capitalize">{prevProject}</p>
-          <p className="text-muted-foreground/70">Previous Project</p>
+          className="flex items-start py-6 flex-col gap-2 border-y-2 border-brand-lightgrey">
+          <SlArrowLeft className="w-5 h-5 mb-2" />
+          <p className="ps-2 capitalize text-xl font-heading font-semibold">
+            {prevProject}
+          </p>
+          <p className="ps-2 text-muted-foreground/70">Previous Project</p>
         </Link>
       ) : (
         <span />
@@ -27,10 +29,12 @@ function DetailPageNav({ prevProject, nextProject }: DetailPageNavProps) {
       {nextProject ? (
         <Link
           href={`/portfolio/projects/${next}`}
-          className="flex flex-col items-end py-6 text-end gap-2 border-y border-brand-lightgrey">
-          <SlArrowRight className="w-5 h-5" />
-          <p className="capitalize text-lg">{nextProject}</p>
-          <p className="text-muted-foreground/70">Next Project</p>
+          className="flex flex-col items-end py-6 text-end gap-2 border-y-2 border-brand-lightgrey">
+          <SlArrowRight className="w-5 h-5 mb-2" />
+          <p className="pe-2 capitalize text-xl font-heading font-semibold">
+            {nextProject}
+          </p>
+          <p className="pe-2 text-muted-foreground/70">Next Project</p>
         </Link>
       ) : (
         <span />
