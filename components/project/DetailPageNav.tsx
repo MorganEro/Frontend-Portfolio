@@ -11,7 +11,7 @@ function DetailPageNav({ prevProject, nextProject }: DetailPageNavProps) {
   const prev = slugify(prevProject || '');
   const next = slugify(nextProject || '');
   return (
-    <nav className="grid grid-cols-2 mt-12 pt-6 divide-x-2 divide-brand-lightgrey">
+    <nav className="grid grid-cols-2 pt-6 divide-x-2 divide-brand-lightgrey">
       {prevProject ? (
         <Link
           href={`/portfolio/projects/${prev}`}

@@ -78,96 +78,99 @@ function ContactForm() {
 
   return (
     <Form {...form}>
-      <h2 className="heading-h2 mb-6">Contact Me</h2>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="max-w-lg space-y-10 mb-12">
-        {/* Honeypot field (hidden) */}
-        <input
-          type="text"
-          tabIndex={-1}
-          autoComplete="off"
-          {...form.register('website')}
-          className="hidden"
-        />
+      <div className="lg:grid lg:grid-cols-2">
+        <h2 className="heading-h1 mb-6">Contact Me</h2>
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="space-y-10 mb-12">
+          {/* Honeypot field (hidden) */}
+          <input
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+            {...form.register('website')}
+            className="hidden"
+          />
 
-        {/* Name */}
-        <FormField
-          control={form.control}
-          name="name"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Name</FormLabel>
-              <FormControl>
-                <Input
-                  placeholder="Your Name"
-                  {...field}
-                  className={cn(
-                    !form.formState.errors.name && form.getValues('name')
-                      ? 'border-green-500/60 border-1'
-                      : ''
-                  )}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+          {/* Name */}
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Name</FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder="Your Name"
+                    {...field}
+                    className={cn(
+                      !form.formState.errors.name && form.getValues('name')
+                        ? 'border-green-500/60 border-1'
+                        : ''
+                    )}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-        {/* Email */}
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Email</FormLabel>
-              <FormControl>
-                <Input
-                  type="email"
-                  placeholder="email@example.com"
-                  {...field}
-                  className={cn(
-                    !form.formState.errors.email && form.getValues('email')
-                      ? 'border-green-500/60 border-1'
-                      : ''
-                  )}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+          {/* Email */}
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Email</FormLabel>
+                <FormControl>
+                  <Input
+                    type="email"
+                    placeholder="email@example.com"
+                    {...field}
+                    className={cn(
+                      !form.formState.errors.email && form.getValues('email')
+                        ? 'border-green-500/60 border-1'
+                        : ''
+                    )}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-        {/* Message */}
-        <FormField
-          control={form.control}
-          name="message"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Message</FormLabel>
-              <FormControl>
-                <Textarea
-                  rows={5}
-                  placeholder="Your message..."
-                  {...field}
-                  className={cn(
-                    !form.formState.errors.message && form.getValues('message')
-                      ? 'border-green-500/60 border-1'
-                      : ''
-                  )}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+          {/* Message */}
+          <FormField
+            control={form.control}
+            name="message"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Message</FormLabel>
+                <FormControl>
+                  <Textarea
+                    rows={4}
+                    placeholder="Your message..."
+                    {...field}
+                    className={cn(
+                      !form.formState.errors.message &&
+                        form.getValues('message')
+                        ? 'border-green-500/60 border-1'
+                        : ''
+                    )}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-        <Button
-          type="submit"
-          disabled={isSubmitting}>
-          {isSubmitting ? 'Sending...' : 'Send Message'}
-        </Button>
-      </form>
+          <Button
+            type="submit"
+            disabled={isSubmitting}>
+            {isSubmitting ? 'Sending...' : 'Send Message'}
+          </Button>
+        </form>
+      </div>
     </Form>
   );
 }

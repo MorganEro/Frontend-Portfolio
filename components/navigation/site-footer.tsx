@@ -1,18 +1,16 @@
-import Link from 'next/link';
-import Image from 'next/image';
 import { NAV_ITEMS } from '@/components/navigation/nav-data';
 import { NavLinks } from '@/components/navigation/NavLinks';
 import { SocialLinks } from '@/components/navigation/SocialLinks';
+import Image from 'next/image';
+import Link from 'next/link';
 import { JSX } from 'react';
-import CallToAction from './CallToAction';
 
 export default function SiteFooter(): JSX.Element {
   return (
     <footer
       role="contentinfo"
       className="bg-brand-graydark text-brand-bg">
-      <CallToAction />
-      <div className="mx-auto grid grid-cols-1 gap-6 px-6 py-12 md:grid-cols-3 md:items-center max-w-6xl xl:max-w-7xl md:px-10">
+      <div className="mx-auto grid grid-cols-1 gap-6 md:gap-12 px-6 py-12 md:flex md:items-center max-w-6xl xl:max-w-7xl md:px-10">
         {/* Left: Logo */}
         <div className="flex items-center justify-center md:justify-start">
           <Link
@@ -33,7 +31,7 @@ export default function SiteFooter(): JSX.Element {
         {/* Middle: Nav */}
         <nav
           aria-label="Footer"
-          className="flex md:w-max justify-center">
+          className="flex md:w-max justify-center md:mr-auto">
           <NavLinks
             items={NAV_ITEMS}
             className="justify-center flex-col md:flex-row"

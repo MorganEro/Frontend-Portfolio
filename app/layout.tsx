@@ -5,6 +5,7 @@ import SiteHeader from '@/components/navigation/site-header';
 import SiteFooter from '@/components/navigation/site-footer';
 import Container from '@/components/layout/Container';
 import { Toaster } from '@/components/ui/sonner';
+import CallToAction from '@/components/navigation/CallToAction';
 
 /* Headings */
 const ibarra = Ibarra_Real_Nova({
@@ -53,6 +54,7 @@ export default function RootLayout({
         <main className="flex-1">
           <Container>{children}</Container>
         </main>
+        <CallToAction />
         <SiteFooter />
         <Toaster />
       </body>
